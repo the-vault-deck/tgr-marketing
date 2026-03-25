@@ -47,7 +47,6 @@ h3 {
   letter-spacing: -0.03em;
 }
 
-/* ── TICKER ── */
 .ticker { background: var(--orange); overflow: hidden; white-space: nowrap; padding: 11px 0; }
 .ticker-track { display: inline-flex; animation: ticker 22s linear infinite; }
 .ticker-track span {
@@ -57,7 +56,6 @@ h3 {
 .ticker-track span::after { content: ' ◆ '; }
 @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-/* ── NAV ── */
 .nav {
   display: flex; justify-content: space-between; align-items: center;
   padding: 18px 48px; border-bottom: 1px solid #222;
@@ -76,7 +74,6 @@ h3 {
 }
 .navlinks a:hover { color: var(--orange); }
 
-/* ── BUTTONS ── */
 .btn {
   display: inline-block; padding: 16px 36px;
   font-family: var(--H); font-weight: 900; font-style: italic;
@@ -94,7 +91,6 @@ h3 {
 .btn-outline-black { background: transparent; color: var(--black); border: 2px solid rgba(0,0,0,0.4); }
 .btn-outline-black:hover { background: var(--black); color: var(--white); transform: scale(1.05) skewX(-4deg); }
 
-/* ── HERO ── */
 .hero {
   min-height: 94vh; display: flex; flex-direction: column;
   justify-content: center; padding: 80px 48px;
@@ -128,7 +124,6 @@ h1.h1 .orange { color: var(--orange); display: block; }
 .hero-body { font-size: 15px; color: #bbb; max-width: 520px; margin-bottom: 40px; line-height: 1.8; }
 .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
 
-/* Orange Box */
 .obox {
   width: clamp(220px, 26vw, 380px); aspect-ratio: 1;
   background: var(--orange); flex-shrink: 0;
@@ -144,7 +139,6 @@ h1.h1 .orange { color: var(--orange); display: block; }
 }
 .obox-sub { font-family: var(--B); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-top: 10px; }
 
-/* ── STATS ── */
 .stats {
   background: #111; border-top: 1px solid #222; border-bottom: 1px solid #222;
   display: flex; max-width: 100%;
@@ -157,7 +151,6 @@ h1.h1 .orange { color: var(--orange); display: block; }
 }
 .stat-lbl { font-family: var(--B); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #777; margin-top: 4px; }
 
-/* ── SECTIONS ── */
 .sec { padding: 100px 0; }
 .sec-alt { background: #111; }
 .sec-stripe { border-top: 4px solid var(--orange); border-bottom: 4px solid var(--orange); }
@@ -181,7 +174,6 @@ h1.h1 .orange { color: var(--orange); display: block; }
   color: #888; margin-bottom: 56px;
 }
 
-/* Rule cards — 3-col grid */
 .card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
 .rcard {
   border-left: 10px solid var(--orange); background: #111;
@@ -193,7 +185,6 @@ h1.h1 .orange { color: var(--orange); display: block; }
 .rcard h3 { font-size: 1.05rem; color: var(--orange); margin-bottom: 12px; }
 .rcard p { font-size: 14px; color: #ccc; line-height: 1.75; }
 
-/* Audience cards */
 .aud-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 56px; }
 .acard { background: var(--black); padding: 44px 32px; position: relative; overflow: hidden; }
 .acard::after {
@@ -203,7 +194,7 @@ h1.h1 .orange { color: var(--orange); display: block; }
 .acard:hover::after { transform: scaleX(1); }
 .acard-num {
   font-family: var(--H); font-weight: 900; font-style: italic; font-size: 60px;
-  color: rgba(255,69,0,0.12); line-height: 1; letter-spacing: -0.04em; margin-bottom: 10px;
+  color: rgba(255,69,0,0.55); line-height: 1; letter-spacing: -0.04em; margin-bottom: 10px;
 }
 .acard-venue { font-family: var(--B); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange); margin-bottom: 6px; }
 .acard-title {
@@ -212,17 +203,15 @@ h1.h1 .orange { color: var(--orange); display: block; }
 }
 .acard p { font-size: 14px; color: #bbb; line-height: 1.75; }
 
-/* Archive */
 .arc-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 72px; align-items: center; }
 .arc-subhead { font-family: var(--B); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
 .arc-body { font-size: 14px; color: #ccc; line-height: 1.8; }
 .arc-head { font-size: clamp(38px, 5vw, 68px); margin-bottom: 16px; }
 .arc-head .strk {
   text-decoration: line-through; text-decoration-color: var(--orange);
-  text-decoration-thickness: 3px; color: #444;
+  text-decoration-thickness: 4px; color: #888;
 }
 
-/* Ledger */
 .ledger { border: 1px solid rgba(255,69,0,0.3); background: #111; box-shadow: 10px 10px 0 var(--orange); font-family: var(--B); }
 .lh { background: var(--orange); padding: 11px 18px; display: flex; justify-content: space-between; }
 .lh span { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); font-weight: 700; }
@@ -233,16 +222,14 @@ h1.h1 .orange { color: var(--orange); display: block; }
 .lhash { font-size: 9px; color: var(--orange); }
 .lf { padding: 9px 18px; background: rgba(255,69,0,0.07); font-size: 9px; color: rgba(255,69,0,0.6); letter-spacing: 0.18em; text-transform: uppercase; }
 
-/* Manifesto */
 .trap-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
 .tcard { background: var(--black); padding: 44px 32px; }
 .tcard:hover { background: #0a0a0a; }
-.tcard-num { font-family: var(--H); font-weight: 900; font-style: italic; font-size: 60px; color: rgba(255,69,0,0.1); line-height: 1; letter-spacing: -0.04em; margin-bottom: 10px; }
+.tcard-num { font-family: var(--H); font-weight: 900; font-style: italic; font-size: 60px; color: rgba(255,69,0,0.55); line-height: 1; letter-spacing: -0.04em; margin-bottom: 10px; }
 .tcard-title { font-family: var(--H); font-weight: 900; font-style: italic; font-size: 1.2rem; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 12px; color: var(--white); }
-.tcard-title .x { -webkit-text-stroke: 1px #444; color: transparent; text-decoration: line-through; text-decoration-color: var(--orange); text-decoration-thickness: 2px; }
+.tcard-title .x { -webkit-text-stroke: 1px #666; color: #777; text-decoration: line-through; text-decoration-color: var(--orange); text-decoration-thickness: 2px; }
 .tcard p { font-size: 14px; color: #bbb; line-height: 1.75; }
 
-/* Finale */
 .finale {
   padding: 140px 0 100px; background: var(--orange);
   position: relative; overflow: hidden; text-align: center;
@@ -261,7 +248,6 @@ h1.h1 .orange { color: var(--orange); display: block; }
 }
 .finale-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-/* Footer */
 footer { background: #050505; border-top: 1px solid #1a1a1a; padding: 36px 48px; }
 .foot { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; }
 .foot-logo { font-family: var(--H); font-weight: 900; font-style: italic; font-size: 16px; text-transform: uppercase; letter-spacing: -0.02em; color: var(--orange); text-decoration: none; }
@@ -271,7 +257,6 @@ footer { background: #050505; border-top: 1px solid #1a1a1a; padding: 36px 48px;
 .foot-links a:hover { color: var(--orange); }
 .foot-copy { font-family: var(--B); font-size: 9px; letter-spacing: 0.14em; color: #333; text-transform: uppercase; }
 
-/* Mobile */
 @media (max-width: 900px) {
   .nav { padding: 14px 20px; } .navlinks { display: none; }
   .hero { padding: 48px 20px; } .hero-grid { grid-template-columns: 1fr; }
@@ -286,7 +271,6 @@ footer { background: #050505; border-top: 1px solid #1a1a1a; padding: 36px 48px;
 </head>
 <body>
 
-<!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
     <span>THIS GAME RULES</span><span>ANY OBJECT</span><span>ANY SPACE</span>
@@ -298,25 +282,23 @@ footer { background: #050505; border-top: 1px solid #1a1a1a; padding: 36px 48px;
   </div>
 </div>
 
-<!-- NAV -->
 <nav class="nav">
   <a href="#" class="logo">This Game <em>Rules.</em></a>
   <ul class="navlinks">
     <li><a href="#engine">The Engine</a></li>
     <li><a href="#archive">The Archive</a></li>
     <li><a href="#manifesto">The Rules</a></li>
-    <li><a href="https://thisgamerules.ai">Launch App →</a></li>
+    <li><a href="https://thisgamerules.ai">Launch App &#8594;</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-grid">
     <div>
-      <div class="eyebrow">Universal Play Engine — v1</div>
+      <div class="eyebrow">Universal Play Engine &#8212; v1</div>
       <h1 class="h1">THIS GAME<br><span class="orange">RULES.</span></h1>
       <p class="hero-sub">Any Object. Any Space. One Set of Rules.</p>
-      <p class="hero-body">Stop scrolling. Start playing. THIS GAME RULES. is the universal engine for physical play. Input the objects you have—a chair, a ball, a bucket—and receive an instant, balanced set of rules for any age, any number of players, and any energy level.</p>
+      <p class="hero-body">Stop scrolling. Start playing. THIS GAME RULES. is the universal engine for physical play. Input the objects you have&#8212;a chair, a ball, a bucket&#8212;and receive an instant, balanced set of rules for any age, any number of players, and any energy level.</p>
       <div class="btn-row">
         <a href="https://thisgamerules.ai" class="btn btn-orange">Start the Engine</a>
         <a href="https://thesoulbolt.com" class="btn btn-outline">View the Ledger</a>
@@ -330,15 +312,13 @@ footer { background: #050505; border-top: 1px solid #1a1a1a; padding: 36px 48px;
   </div>
 </section>
 
-<!-- STATS -->
 <div class="stats">
-  <div class="stat"><div class="stat-val">∞</div><div class="stat-lbl">Possible Games</div></div>
+  <div class="stat"><div class="stat-val">&#8734;</div><div class="stat-lbl">Possible Games</div></div>
   <div class="stat"><div class="stat-val">0</div><div class="stat-lbl">Screens to Play</div></div>
   <div class="stat"><div class="stat-val">3</div><div class="stat-lbl">Audiences. One Engine.</div></div>
   <div class="stat"><div class="stat-val">0</div><div class="stat-lbl">Addictive Loops</div></div>
 </div>
 
-<!-- ENGINE -->
 <section class="sec" id="engine">
   <div class="wrap">
     <div class="tag" data-n="02">The Engine</div>
@@ -361,7 +341,6 @@ footer { background: #050505; border-top: 1px solid #1a1a1a; padding: 36px 48px;
   </div>
 </section>
 
-<!-- AUDIENCE -->
 <section class="sec sec-alt sec-stripe" id="utility">
   <div class="wrap">
     <div class="tag" data-n="03">The Utility</div>
@@ -378,7 +357,7 @@ footer { background: #050505; border-top: 1px solid #1a1a1a; padding: 36px 48px;
         <div class="acard-num">02</div>
         <div class="acard-venue">Families &amp; Kids</div>
         <div class="acard-title">Structured Arena</div>
-        <p>Turn a rainy afternoon into a structured arena. No screens, no boredom, just movement. A chair, a ball, and a bucket. That's the whole kit.</p>
+        <p>Turn a rainy afternoon into a structured arena. No screens, no boredom, just movement. A chair, a ball, and a bucket. That&#39;s the whole kit.</p>
       </div>
       <div class="acard">
         <div class="acard-num">03</div>
@@ -390,7 +369,6 @@ footer { background: #050505; border-top: 1px solid #1a1a1a; padding: 36px 48px;
   </div>
 </section>
 
-<!-- ARCHIVE -->
 <section class="sec" id="archive">
   <div class="wrap">
     <div class="arc-grid">
@@ -401,19 +379,18 @@ footer { background: #050505; border-top: 1px solid #1a1a1a; padding: 36px 48px;
         <p class="arc-body">Every game you create is etched into your personal history. Our append-only archive preserves your creative growth. Look back at the games you invented years ago. No deletions. No edits. Just your evolving history of play.</p>
       </div>
       <div class="ledger">
-        <div class="lh"><span>Personal Archive — Append-Only</span><span>VERIFIED ◆</span></div>
-        <div class="lr"><div><div class="lt">BACKYARD BUCKET OLYMPIC TRIALS</div><div class="lm">4 players · Ages 8–12 · High Energy</div></div><div class="lhash">#a3f8c1</div></div>
-        <div class="lr"><div><div class="lt">OFFICE CHAIR GRAND PRIX</div><div class="lm">6 players · All ages · Medium Energy</div></div><div class="lhash">#b7d2a9</div></div>
-        <div class="lr"><div><div class="lt">POOL NOODLE FENCING LEAGUE</div><div class="lm">2 players · Ages 6+ · High Energy</div></div><div class="lhash">#f14e22</div></div>
-        <div class="lr"><div><div class="lt">HALLWAY SHUFFLEBOARD CLASSIC</div><div class="lm">8 players · Seniors · Low Impact</div></div><div class="lhash">#9c3b01</div></div>
-        <div class="lr"><div><div class="lt">KITCHEN CUP STACK RELAY</div><div class="lm">3 teams · Ages 5+ · Medium Energy</div></div><div class="lhash">#12e6f0</div></div>
-        <div class="lf">Append-only · No deletions · No edits · Permanent record</div>
+        <div class="lh"><span>Personal Archive &#8212; Append-Only</span><span>VERIFIED &#9670;</span></div>
+        <div class="lr"><div><div class="lt">BACKYARD BUCKET OLYMPIC TRIALS</div><div class="lm">4 players &#183; Ages 8&#8211;12 &#183; High Energy</div></div><div class="lhash">#a3f8c1</div></div>
+        <div class="lr"><div><div class="lt">OFFICE CHAIR GRAND PRIX</div><div class="lm">6 players &#183; All ages &#183; Medium Energy</div></div><div class="lhash">#b7d2a9</div></div>
+        <div class="lr"><div><div class="lt">POOL NOODLE FENCING LEAGUE</div><div class="lm">2 players &#183; Ages 6+ &#183; High Energy</div></div><div class="lhash">#f14e22</div></div>
+        <div class="lr"><div><div class="lt">HALLWAY SHUFFLEBOARD CLASSIC</div><div class="lm">8 players &#183; Seniors &#183; Low Impact</div></div><div class="lhash">#9c3b01</div></div>
+        <div class="lr"><div><div class="lt">KITCHEN CUP STACK RELAY</div><div class="lm">3 teams &#183; Ages 5+ &#183; Medium Energy</div></div><div class="lhash">#12e6f0</div></div>
+        <div class="lf">Append-only &#183; No deletions &#183; No edits &#183; Permanent record</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MANIFESTO -->
 <section class="sec sec-alt" id="manifesto">
   <div class="wrap">
     <div class="tag" data-n="05">The Manifesto</div>
@@ -433,17 +410,16 @@ footer { background: #050505; border-top: 1px solid #1a1a1a; padding: 36px 48px;
       <div class="tcard">
         <div class="tcard-num">03</div>
         <div class="tcard-title">NO <span class="x">SURVEILLANCE</span></div>
-        <p>We don't track your behavior. We protect your play. Your archive is yours — append-only, private, and permanent.</p>
+        <p>We don&#39;t track your behavior. We protect your play. Your archive is yours &#8212; append-only, private, and permanent.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FINALE -->
 <section class="finale">
   <div class="wrap">
     <h2>START<br>THE<br>ENGINE.</h2>
-    <p class="finale-sub">Drop the phone. Pick up the chair. Let's go.</p>
+    <p class="finale-sub">Drop the phone. Pick up the chair. Let&#39;s go.</p>
     <div class="finale-btns">
       <a href="https://thisgamerules.ai" class="btn btn-black">Start the Engine</a>
       <a href="https://sauvern.com" class="btn btn-outline-black">Enter the Marketplace</a>
@@ -451,7 +427,6 @@ footer { background: #050505; border-top: 1px solid #1a1a1a; padding: 36px 48px;
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="foot">
     <a href="#top" class="foot-logo">This Game <em>Rules.</em></a>
@@ -460,7 +435,7 @@ footer { background: #050505; border-top: 1px solid #1a1a1a; padding: 36px 48px;
       <li><a href="https://thesoulbolt.com">The Ledger</a></li>
       <li><a href="https://sauvern.com">The Marketplace</a></li>
     </ul>
-    <span class="foot-copy">&copy; 2026 mAIn St. Solutions</span>
+    <span class="foot-copy">&#169; 2026 mAIn St. Solutions</span>
   </div>
 </footer>
 
