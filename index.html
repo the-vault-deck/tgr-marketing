@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THIS GAME RULES.</title>
+<meta name="description" content="Any Object. Any Space. One Set of Rules. The universal engine for physical play.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;0,900;1,900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --orange: #FF4500;
+  --white: #FFFFFF;
+  --black: #000000;
+  --grey: #1A1A1A;
+  --yellow: #FFD700;
+  --H: 'Inter', sans-serif;
+  --B: 'Roboto Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--B);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2 {
+  font-family: var(--H);
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  line-height: 0.87;
+}
+h3 {
+  font-family: var(--H);
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+}
+
+/* ── TICKER ── */
+.ticker { background: var(--orange); overflow: hidden; white-space: nowrap; padding: 11px 0; }
+.ticker-track { display: inline-flex; animation: ticker 22s linear infinite; }
+.ticker-track span {
+  font-family: var(--H); font-weight: 900; font-style: italic;
+  font-size: 12px; letter-spacing: 0.18em; color: var(--black); padding: 0 24px;
+}
+.ticker-track span::after { content: ' ◆ '; }
+@keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* ── NAV ── */
+.nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 48px; border-bottom: 1px solid #222;
+  background: var(--black);
+}
+.logo {
+  font-family: var(--H); font-weight: 900; font-style: italic;
+  font-size: 18px; letter-spacing: -0.03em; text-transform: uppercase;
+  color: var(--orange); text-decoration: none;
+}
+.logo em { color: #555; font-style: normal; }
+.navlinks { display: flex; gap: 32px; list-style: none; }
+.navlinks a {
+  font-family: var(--B); font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.1s;
+}
+.navlinks a:hover { color: var(--orange); }
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-block; padding: 16px 36px;
+  font-family: var(--H); font-weight: 900; font-style: italic;
+  font-size: 15px; text-transform: uppercase; letter-spacing: 0.06em;
+  text-decoration: none; cursor: pointer; border: none;
+  clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+  transition: transform 0.1s ease, background 0.1s ease, color 0.1s ease;
+}
+.btn-orange { background: var(--orange); color: var(--white); }
+.btn-orange:hover { background: var(--yellow); color: var(--black); transform: scale(1.05) skewX(-4deg); }
+.btn-outline { background: transparent; color: var(--white); border: 2px solid #555; }
+.btn-outline:hover { border-color: var(--orange); color: var(--orange); transform: scale(1.05) skewX(-4deg); }
+.btn-black { background: var(--black); color: var(--white); }
+.btn-black:hover { background: var(--white); color: var(--black); transform: scale(1.05) skewX(-4deg); }
+.btn-outline-black { background: transparent; color: var(--black); border: 2px solid rgba(0,0,0,0.4); }
+.btn-outline-black:hover { background: var(--black); color: var(--white); transform: scale(1.05) skewX(-4deg); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 94vh; display: flex; flex-direction: column;
+  justify-content: center; padding: 80px 48px;
+  position: relative; overflow: hidden; background: var(--black);
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: repeating-linear-gradient(-52deg, transparent, transparent 52px,
+    rgba(255,69,0,0.04) 52px, rgba(255,69,0,0.04) 53px);
+  pointer-events: none;
+}
+.hero-grid {
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 64px; align-items: center; position: relative; z-index: 1;
+}
+.eyebrow {
+  font-family: var(--B); font-size: 11px; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--orange); }
+h1.h1 { font-size: clamp(68px, 12vw, 148px); color: var(--white); margin-bottom: 20px; }
+h1.h1 .orange { color: var(--orange); display: block; }
+.hero-sub {
+  font-family: var(--H); font-weight: 700; font-style: italic;
+  font-size: clamp(15px, 2vw, 24px); text-transform: uppercase;
+  color: #ccc; margin-bottom: 20px;
+  border-left: 5px solid var(--orange); padding-left: 16px;
+}
+.hero-body { font-size: 15px; color: #bbb; max-width: 520px; margin-bottom: 40px; line-height: 1.8; }
+.btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* Orange Box */
+.obox {
+  width: clamp(220px, 26vw, 380px); aspect-ratio: 1;
+  background: var(--orange); flex-shrink: 0;
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  box-shadow: 14px 14px 0 rgba(255,69,0,0.2);
+}
+.obox-label { font-family: var(--B); font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--white); margin-bottom: 6px; }
+.obox-main {
+  font-family: var(--H); font-weight: 900; font-style: italic;
+  font-size: clamp(40px, 6vw, 84px); color: var(--black);
+  line-height: 0.85; letter-spacing: -0.04em; text-align: center;
+}
+.obox-sub { font-family: var(--B); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-top: 10px; }
+
+/* ── STATS ── */
+.stats {
+  background: #111; border-top: 1px solid #222; border-bottom: 1px solid #222;
+  display: flex; max-width: 100%;
+}
+.stat { flex: 1; padding: 24px 40px; border-left: 1px solid #222; }
+.stat:first-child { border-left: none; }
+.stat-val {
+  font-family: var(--H); font-weight: 900; font-style: italic;
+  font-size: 32px; color: var(--orange); line-height: 1; letter-spacing: -0.03em;
+}
+.stat-lbl { font-family: var(--B); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #777; margin-top: 4px; }
+
+/* ── SECTIONS ── */
+.sec { padding: 100px 0; }
+.sec-alt { background: #111; }
+.sec-stripe { border-top: 4px solid var(--orange); border-bottom: 4px solid var(--orange); }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+.tag {
+  font-family: var(--B); font-size: 10px; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.tag::before {
+  content: attr(data-n); font-family: var(--H); font-weight: 900; font-style: italic;
+  font-size: 12px; background: var(--orange); color: var(--black);
+  width: 26px; height: 26px; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sec-head { font-size: clamp(36px, 5vw, 68px); margin-bottom: 10px; }
+.sec-sub {
+  font-family: var(--H); font-weight: 600; font-style: italic;
+  font-size: 1rem; text-transform: uppercase; letter-spacing: 0.06em;
+  color: #888; margin-bottom: 56px;
+}
+
+/* Rule cards — 3-col grid */
+.card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+.rcard {
+  border-left: 10px solid var(--orange); background: #111;
+  padding: 32px 28px;
+  box-shadow: 8px 8px 0 var(--orange);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.rcard:hover { transform: translate(-3px,-3px); box-shadow: 11px 11px 0 var(--orange); }
+.rcard h3 { font-size: 1.05rem; color: var(--orange); margin-bottom: 12px; }
+.rcard p { font-size: 14px; color: #ccc; line-height: 1.75; }
+
+/* Audience cards */
+.aud-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 56px; }
+.acard { background: var(--black); padding: 44px 32px; position: relative; overflow: hidden; }
+.acard::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform 0.15s;
+}
+.acard:hover::after { transform: scaleX(1); }
+.acard-num {
+  font-family: var(--H); font-weight: 900; font-style: italic; font-size: 60px;
+  color: rgba(255,69,0,0.12); line-height: 1; letter-spacing: -0.04em; margin-bottom: 10px;
+}
+.acard-venue { font-family: var(--B); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange); margin-bottom: 6px; }
+.acard-title {
+  font-family: var(--H); font-weight: 900; font-style: italic;
+  font-size: 1.4rem; letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 14px; color: var(--white);
+}
+.acard p { font-size: 14px; color: #bbb; line-height: 1.75; }
+
+/* Archive */
+.arc-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 72px; align-items: center; }
+.arc-subhead { font-family: var(--B); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+.arc-body { font-size: 14px; color: #ccc; line-height: 1.8; }
+.arc-head { font-size: clamp(38px, 5vw, 68px); margin-bottom: 16px; }
+.arc-head .strk {
+  text-decoration: line-through; text-decoration-color: var(--orange);
+  text-decoration-thickness: 3px; color: #444;
+}
+
+/* Ledger */
+.ledger { border: 1px solid rgba(255,69,0,0.3); background: #111; box-shadow: 10px 10px 0 var(--orange); font-family: var(--B); }
+.lh { background: var(--orange); padding: 11px 18px; display: flex; justify-content: space-between; }
+.lh span { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); font-weight: 700; }
+.lr { padding: 13px 18px; border-bottom: 1px solid #222; display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; }
+.lr:last-child { border-bottom: none; }
+.lt { font-size: 12px; color: var(--white); letter-spacing: 0.04em; }
+.lm { font-size: 9px; color: #777; letter-spacing: 0.1em; margin-top: 3px; }
+.lhash { font-size: 9px; color: var(--orange); }
+.lf { padding: 9px 18px; background: rgba(255,69,0,0.07); font-size: 9px; color: rgba(255,69,0,0.6); letter-spacing: 0.18em; text-transform: uppercase; }
+
+/* Manifesto */
+.trap-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+.tcard { background: var(--black); padding: 44px 32px; }
+.tcard:hover { background: #0a0a0a; }
+.tcard-num { font-family: var(--H); font-weight: 900; font-style: italic; font-size: 60px; color: rgba(255,69,0,0.1); line-height: 1; letter-spacing: -0.04em; margin-bottom: 10px; }
+.tcard-title { font-family: var(--H); font-weight: 900; font-style: italic; font-size: 1.2rem; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 12px; color: var(--white); }
+.tcard-title .x { -webkit-text-stroke: 1px #444; color: transparent; text-decoration: line-through; text-decoration-color: var(--orange); text-decoration-thickness: 2px; }
+.tcard p { font-size: 14px; color: #bbb; line-height: 1.75; }
+
+/* Finale */
+.finale {
+  padding: 140px 0 100px; background: var(--orange);
+  position: relative; overflow: hidden; text-align: center;
+}
+.finale::before {
+  content: 'PLAY'; position: absolute; font-family: var(--H); font-weight: 900; font-style: italic;
+  font-size: 36vw; color: rgba(0,0,0,0.08); line-height: 1; top: 50%; left: 50%;
+  transform: translate(-50%,-50%); white-space: nowrap; pointer-events: none; letter-spacing: -0.05em;
+}
+.finale .wrap { position: relative; z-index: 1; }
+.finale h2 { font-size: clamp(52px, 10vw, 120px); color: var(--black); margin-bottom: 20px; }
+.finale-sub {
+  font-family: var(--H); font-weight: 600; font-style: italic;
+  font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.06em;
+  color: rgba(0,0,0,0.5); margin-bottom: 56px;
+}
+.finale-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* Footer */
+footer { background: #050505; border-top: 1px solid #1a1a1a; padding: 36px 48px; }
+.foot { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; }
+.foot-logo { font-family: var(--H); font-weight: 900; font-style: italic; font-size: 16px; text-transform: uppercase; letter-spacing: -0.02em; color: var(--orange); text-decoration: none; }
+.foot-logo em { color: #333; font-style: normal; }
+.foot-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+.foot-links a { font-family: var(--B); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #555; text-decoration: none; transition: color 0.1s; }
+.foot-links a:hover { color: var(--orange); }
+.foot-copy { font-family: var(--B); font-size: 9px; letter-spacing: 0.14em; color: #333; text-transform: uppercase; }
+
+/* Mobile */
+@media (max-width: 900px) {
+  .nav { padding: 14px 20px; } .navlinks { display: none; }
+  .hero { padding: 48px 20px; } .hero-grid { grid-template-columns: 1fr; }
+  .obox { display: none; }
+  .stats { flex-wrap: wrap; } .stat { min-width: 50%; }
+  .wrap { padding: 0 20px; }
+  .card-grid, .aud-grid, .trap-grid { grid-template-columns: 1fr; }
+  .arc-grid { grid-template-columns: 1fr; }
+  footer { padding: 28px 20px; } .foot { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>THIS GAME RULES</span><span>ANY OBJECT</span><span>ANY SPACE</span>
+    <span>ONE SET OF RULES</span><span>NO LEADERBOARDS</span><span>NO SURVEILLANCE</span>
+    <span>NO ADDICTIVE LOOPS</span><span>START THE ENGINE</span>
+    <span>THIS GAME RULES</span><span>ANY OBJECT</span><span>ANY SPACE</span>
+    <span>ONE SET OF RULES</span><span>NO LEADERBOARDS</span><span>NO SURVEILLANCE</span>
+    <span>NO ADDICTIVE LOOPS</span><span>START THE ENGINE</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="logo">This Game <em>Rules.</em></a>
+  <ul class="navlinks">
+    <li><a href="#engine">The Engine</a></li>
+    <li><a href="#archive">The Archive</a></li>
+    <li><a href="#manifesto">The Rules</a></li>
+    <li><a href="https://thisgamerules.ai">Launch App →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">Universal Play Engine — v1</div>
+      <h1 class="h1">THIS GAME<br><span class="orange">RULES.</span></h1>
+      <p class="hero-sub">Any Object. Any Space. One Set of Rules.</p>
+      <p class="hero-body">Stop scrolling. Start playing. THIS GAME RULES. is the universal engine for physical play. Input the objects you have—a chair, a ball, a bucket—and receive an instant, balanced set of rules for any age, any number of players, and any energy level.</p>
+      <div class="btn-row">
+        <a href="https://thisgamerules.ai" class="btn btn-orange">Start the Engine</a>
+        <a href="https://thesoulbolt.com" class="btn btn-outline">View the Ledger</a>
+      </div>
+    </div>
+    <div class="obox">
+      <div class="obox-label">Objects Needed</div>
+      <div class="obox-main">ANY<br>THING.</div>
+      <div class="obox-sub">Rules Generated Instantly</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-val">∞</div><div class="stat-lbl">Possible Games</div></div>
+  <div class="stat"><div class="stat-val">0</div><div class="stat-lbl">Screens to Play</div></div>
+  <div class="stat"><div class="stat-val">3</div><div class="stat-lbl">Audiences. One Engine.</div></div>
+  <div class="stat"><div class="stat-val">0</div><div class="stat-lbl">Addictive Loops</div></div>
+</div>
+
+<!-- ENGINE -->
+<section class="sec" id="engine">
+  <div class="wrap">
+    <div class="tag" data-n="02">The Engine</div>
+    <h2 class="sec-head">HOW THE <span style="color:var(--orange)">PROTOCOL</span><br>EXECUTES.</h2>
+    <p class="sec-sub">Three Steps. Total Play.</p>
+    <div class="card-grid">
+      <div class="rcard">
+        <h3>01. Input Objects</h3>
+        <p>Tell the engine what you have. A bucket. A tennis ball. A lawn chair. The constraints define the game.</p>
+      </div>
+      <div class="rcard">
+        <h3>02. Generate Protocol</h3>
+        <p>Instant, balanced rules calibrated for your demographic, energy level, and object set. No guesswork.</p>
+      </div>
+      <div class="rcard">
+        <h3>03. Execute Play</h3>
+        <p>Put the phone down. The rules are set. The game is on. We get out of the way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="sec sec-alt sec-stripe" id="utility">
+  <div class="wrap">
+    <div class="tag" data-n="03">The Utility</div>
+    <h2 class="sec-head">FOR THE BACKYARD.<br>THE BAR.<br><span style="color:var(--orange)">THE BREAKROOM.</span></h2>
+    <p class="sec-sub" style="margin-top:10px">One Engine. Infinite Disciplines.</p>
+    <div class="aud-grid">
+      <div class="acard">
+        <div class="acard-num">01</div>
+        <div class="acard-venue">Tailgates &amp; Bars</div>
+        <div class="acard-title">The Bro-Olympics</div>
+        <p>Pro-grade competition logic for the post-game parking lot. Settle the score with an impartial digital referee. No arguments. Just physics.</p>
+      </div>
+      <div class="acard">
+        <div class="acard-num">02</div>
+        <div class="acard-venue">Families &amp; Kids</div>
+        <div class="acard-title">Structured Arena</div>
+        <p>Turn a rainy afternoon into a structured arena. No screens, no boredom, just movement. A chair, a ball, and a bucket. That's the whole kit.</p>
+      </div>
+      <div class="acard">
+        <div class="acard-num">03</div>
+        <div class="acard-venue">Seniors &amp; Care</div>
+        <div class="acard-title">Mind &amp; Body Sync</div>
+        <p>Low-impact cognitive and physical engagement designed to keep mind and body in sync. Every ruleset scales to the room.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHIVE -->
+<section class="sec" id="archive">
+  <div class="wrap">
+    <div class="arc-grid">
+      <div>
+        <div class="tag" data-n="04">The Hall of Fame</div>
+        <h2 class="arc-head">YOUR LEGACY<br>IS ON THE<br><span class="strk">BOARD</span><br>LEDGER.</h2>
+        <div class="arc-subhead">Powered by The SOULBOLT.</div>
+        <p class="arc-body">Every game you create is etched into your personal history. Our append-only archive preserves your creative growth. Look back at the games you invented years ago. No deletions. No edits. Just your evolving history of play.</p>
+      </div>
+      <div class="ledger">
+        <div class="lh"><span>Personal Archive — Append-Only</span><span>VERIFIED ◆</span></div>
+        <div class="lr"><div><div class="lt">BACKYARD BUCKET OLYMPIC TRIALS</div><div class="lm">4 players · Ages 8–12 · High Energy</div></div><div class="lhash">#a3f8c1</div></div>
+        <div class="lr"><div><div class="lt">OFFICE CHAIR GRAND PRIX</div><div class="lm">6 players · All ages · Medium Energy</div></div><div class="lhash">#b7d2a9</div></div>
+        <div class="lr"><div><div class="lt">POOL NOODLE FENCING LEAGUE</div><div class="lm">2 players · Ages 6+ · High Energy</div></div><div class="lhash">#f14e22</div></div>
+        <div class="lr"><div><div class="lt">HALLWAY SHUFFLEBOARD CLASSIC</div><div class="lm">8 players · Seniors · Low Impact</div></div><div class="lhash">#9c3b01</div></div>
+        <div class="lr"><div><div class="lt">KITCHEN CUP STACK RELAY</div><div class="lm">3 teams · Ages 5+ · Medium Energy</div></div><div class="lhash">#12e6f0</div></div>
+        <div class="lf">Append-only · No deletions · No edits · Permanent record</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="sec sec-alt" id="manifesto">
+  <div class="wrap">
+    <div class="tag" data-n="05">The Manifesto</div>
+    <h2 class="sec-head">PLAY WITHOUT<br>THE TRAPS.</h2>
+    <p class="sec-sub">Built for Connection, Not Consumption.</p>
+    <div class="trap-grid">
+      <div class="tcard">
+        <div class="tcard-num">01</div>
+        <div class="tcard-title">NO <span class="x">ADDICTIVE</span> LOOPS</div>
+        <p>We give you the rules, then we get out of the way. The game ends when you decide it ends. Not when we decide.</p>
+      </div>
+      <div class="tcard">
+        <div class="tcard-num">02</div>
+        <div class="tcard-title">NO <span class="x">LEADERBOARDS</span></div>
+        <p>Your only competition is the physics of the game. No rank to optimize for. No score to chase. Just the ball and the bucket.</p>
+      </div>
+      <div class="tcard">
+        <div class="tcard-num">03</div>
+        <div class="tcard-title">NO <span class="x">SURVEILLANCE</span></div>
+        <p>We don't track your behavior. We protect your play. Your archive is yours — append-only, private, and permanent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINALE -->
+<section class="finale">
+  <div class="wrap">
+    <h2>START<br>THE<br>ENGINE.</h2>
+    <p class="finale-sub">Drop the phone. Pick up the chair. Let's go.</p>
+    <div class="finale-btns">
+      <a href="https://thisgamerules.ai" class="btn btn-black">Start the Engine</a>
+      <a href="https://sauvern.com" class="btn btn-outline-black">Enter the Marketplace</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <a href="#top" class="foot-logo">This Game <em>Rules.</em></a>
+    <ul class="foot-links">
+      <li><a href="https://thisgamerules.ai">The App</a></li>
+      <li><a href="https://thesoulbolt.com">The Ledger</a></li>
+      <li><a href="https://sauvern.com">The Marketplace</a></li>
+    </ul>
+    <span class="foot-copy">&copy; 2026 mAIn St. Solutions</span>
+  </div>
+</footer>
+
+</body>
+</html>
